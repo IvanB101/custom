@@ -12,6 +12,12 @@ local plugins = {
   },
   {
     "neovim/nvim-lspconfig",
+    dependencies = {
+      "jose-elias-alvarez/null-ls.nvim",
+      config = function()
+        require "custom.configs.null-ls"
+      end,
+    },
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
@@ -29,15 +35,16 @@ local plugins = {
         "json-lsp",
         "lua-language-server",
         "beautysh",
-      }
-    }
+        "clang_format",
+      },
+    },
   },
   {
     "rust-lang/rust.vim",
     ft = "rust",
-    init = function ()
+    init = function()
       vim.g.rustfmt_autosave = 1
-    end
+    end,
   },
 }
 return plugins
