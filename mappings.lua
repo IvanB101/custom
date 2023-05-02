@@ -9,14 +9,18 @@ M.general = {
     ["<C-k>"] = { "<cmd> TmuxNavigateUp<CR>", "window up"},
     -- For convienience
     -- ["<leader>s"] = {"[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]", ""},
+    -- Center cursor with some commands
     ["J"] = {"mzJ`z", ""},
     ["<C-d>"] = {"<C-d>zz", ""},
     ["<C-u>"] = {"<C-u>zz", ""},
-    ["n"] = {"nzzzv", ""},
-    ["N"] = {"Nzzzv", ""},
+    ["n"] = {"nzzzv", "Centered cursor n"},
+    ["N"] = {"Nzzzv", "Centered cursor N"},
+    -- Yanking and pasting from a to clipboard
     ["<leader>y"] = {"\"+y", ""},
     ["<leader>pc"] = {"\"+p", ""},
-    ["<leader>d"] = {"\"+p", ""},
+    -- Delete to void
+    ["<leader>d"] = {"\"_d", ""},
+    -- Evading muscle memory problems
     ["Q"] = {"<nop>", ""},
     ["<C-z>"] = {"<nop>", ""},
   },
