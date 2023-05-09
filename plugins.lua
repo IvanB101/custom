@@ -12,6 +12,13 @@ local plugins = {
     },
     {
         "neovim/nvim-lspconfig",
+        dependencies = {
+            "jose-elias-alvarez/null-ls.nvim",
+            ft = { "go" },
+            opts = function()
+                require "custom.configs.null-ls"
+            end,
+        },
         config = function()
             require "plugins.configs.lspconfig"
             require "custom.configs.lspconfig"
@@ -27,6 +34,7 @@ local plugins = {
                 "html-lsp",
                 "sqlls",
                 "lemminx",
+                "gopls",
             },
         },
     },
