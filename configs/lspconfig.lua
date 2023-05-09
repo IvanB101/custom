@@ -5,6 +5,7 @@ local lspconfig = require "lspconfig"
 local util = require "lspconfig/util"
 
 local servers = {
+    "clangd",
     "jdtls",
     "html",
     "tsserver",
