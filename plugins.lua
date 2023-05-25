@@ -16,13 +16,12 @@ local plugins = {
             require "plugins.configs.lspconfig"
             require "custom.configs.lspconfig"
         end,
-    },
-    {
-        "jose-elias-alvarez/null-ls.nvim",
-        ft = { "go", "c", "h" },
-        opts = function()
-            require "custom.configs.null-ls"
-        end,
+        dependencies = {
+            "jose-elias-alvarez/null-ls.nvim",
+            config = function()
+                require "custom.configs.null-ls"
+            end,
+        },
     },
     {
         "williamboman/mason.nvim",

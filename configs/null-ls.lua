@@ -1,9 +1,9 @@
 local null_ls = require("null-ls")
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 local formatting = null_ls.builtins.formatting
-local diagnostics = null_ls.builtins.diagnostics
+-- local diagnostics = null_ls.builtins.diagnostics
 
-local opts = {
+null_ls.setup({
     sources = {
         -- go
         -- go install mvdan.cc/gofupmt v0.5.0
@@ -31,6 +31,4 @@ local opts = {
             })
         end
     end,
-}
-
-return opts
+})
