@@ -11,6 +11,8 @@ local servers = {
     "tsserver",
     "sqlls",
     "lemminx",
+    -- cargo install slint-lsp
+    "slint_lsp",
 }
 
 for _, lsp in ipairs(servers) do
