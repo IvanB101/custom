@@ -24,19 +24,13 @@ local plugins = {
         },
     },
     {
+        "williamboman/nvim-lsp-installer",
+        lazy = false,
+        opts = require("custom.configs.lsp_installer")
+    },
+    {
         "williamboman/mason.nvim",
-        opts = {
-            ensure_installed = {
-                "rust-analyzer",
-                "clangd",
-                "jdtls",
-                "html-lsp",
-                "sqlls",
-                "lemminx",
-                "gopls",
-                "clang-format",
-            },
-        },
+        opts = require("custom.configs.mason"),
     },
     {
         "rust-lang/rust.vim",

@@ -1,5 +1,3 @@
-vim.cmd [[ autocmd BufRead,BufNewFile *.slint set filetype=slint ]]
-
 local opt = vim.opt
 
 opt.relativenumber = true

@@ -11,7 +11,7 @@ local servers = {
     "tsserver",
     "sqlls",
     "lemminx",
-    -- cargo install slint-lsp
+    -- run nvim command `TSInstall slint` for syntax highligh
     "slint_lsp",
 }
 
@@ -35,6 +35,7 @@ lspconfig.rust_analyzer.setup {
         },
     },
 }
+
 lspconfig.gopls.setup {
     on_attach = on_attach,
     capabilities = capabilities,
