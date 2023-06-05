@@ -11,8 +11,10 @@ local servers = {
     "tsserver",
     "sqlls",
     "lemminx",
+    -- run nvim command `LspInstall slint`
     -- run nvim command `TSInstall slint` for syntax highligh
     "slint_lsp",
+    "texlab",
 }
 
 for _, lsp in ipairs(servers) do

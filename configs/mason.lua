@@ -8,6 +8,8 @@ local opts = {
         "lemminx",
         "gopls",
         "clang-format",
+        "tectonic",
+        "texlab",
     }
 }
 
