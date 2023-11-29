@@ -26,9 +26,21 @@ M.general = {
     ["<leader>pc"] = {"\"+p", "paste from clipboard"},
     -- Delete to void
     ["<leader>d"] = {"\"_d", "delete"},
+    ["<C-a>"] = {"gg0vG$", "select all"},
     -- Evading muscle memory problems
     ["Q"] = {"<nop>", ""},
     ["<C-z>"] = {"<nop>", ""},
+
+    -- Debugger
+    ["<leader>db"] = {"<cmd> DapToggleBreakpoint<CR>", "toggle break point"},
+    ["<leader>db"] = {
+        function ()
+            local widgets = require("dap.ui.widgets")
+            local sidebar = widgets.sidebar(widgets.scopes)
+            sidebar.open()
+        end,
+        "open debugging sidebar"
+    }
   },
   v = {
     ["<leader>pc"] = {"\"+p", "paste from clipboard"},
