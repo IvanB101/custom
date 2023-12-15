@@ -48,19 +48,19 @@ local plugins = {
             vim.g.rustfmt_autosave = 1
         end,
     },
-    {
-        "simrat39/rust-tools.nvim",
-        ft = "rust",
-        dependencies = "neovim/nvim-lspconfig",
-        ops = require("custom.configs.rust-tools"),
-        config = function (_, opts)
-            require("rust-tools").setup(opts)
-        end
-    },
-    {
-        -- sudo apt install lldb
-        "mfussenegger/nvim-dap"
-    },
+    -- {
+    --     "simrat39/rust-tools.nvim",
+    --     ft = "rust",
+    --     dependencies = "neovim/nvim-lspconfig",
+    --     ops = require("custom.configs.rust-tools"),
+    --     config = function (_, opts)
+    --         require("rust-tools").setup(opts)
+    --     end
+    -- },
+    -- {
+    --     -- sudo apt install lldb
+    --     "mfussenegger/nvim-dap"
+    -- },
     {
         "saecki/crates.nvim",
         ft = {"rust", "toml"},
@@ -72,7 +72,7 @@ local plugins = {
         end
     },
     {
-        "hrsg7th/nvim-cmp",
+        "hrsh7th/nvim-cmp",
         opts = function ()
             local M = require("plugins.configs.cmp")
             table.insert(M.sources, {name = "crates"})
