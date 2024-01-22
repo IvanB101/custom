@@ -1,5 +1,8 @@
 local plugins = {
     {
+        "prettier/vim-prettier",
+    },
+    {
         "christoomey/vim-tmux-navigator",
         lazy = false,
     },

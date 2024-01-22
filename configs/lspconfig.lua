@@ -8,7 +8,7 @@ local servers = {
     "clangd",
     "jdtls",
     "html",
-    "tsserver",
+    -- npm install -g typescript-language-server typescript
     "sqlls",
     "lemminx",
     -- run nvim command `LspInstall slint`
@@ -26,10 +26,17 @@ for _, lsp in ipairs(servers) do
     }
 end
 
+lspconfig.tsserver.setup({
+    on_attach = function(client)
+        client.server_capabilities.documentFormattingProvider = false
+    end,
+    capabilities = capabilities,
+})
+
 lspconfig.rust_analyzer.setup({
     on_attach = on_attach,
     capabilities = capabilities,
-    filetypes = {"rust"},
+    filetypes = { "rust" },
     root_dir = util.root_pattern("Cargo.toml"),
     settings = {
         ['rust-analyser'] = {

@@ -4,6 +4,9 @@ local formatting = null_ls.builtins.formatting
 -- local diagnostics = null_ls.builtins.diagnostics
 
 null_ls.setup({
+    ensure_installed = {
+        "prettier",
+    },
     sources = {
         -- go
         -- go install mvdan.cc/gofupmt v0.5.0
@@ -13,6 +16,7 @@ null_ls.setup({
         -- go install github.com/segmentio/golines v0.11.0
         -- formatting.golines,
         formatting.clang_format,
+        formatting.prettier
     },
     on_attach = function(client, bufnr)
         if client.supports_method("textDocument/formatting") then
