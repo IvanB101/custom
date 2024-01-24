@@ -8,7 +8,6 @@ opt.shiftwidth = 4
 opt.expandtab = true
 
 opt.smartindent = true
-
 opt.wrap = false
 
 opt.scrolloff = 8

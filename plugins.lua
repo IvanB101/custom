@@ -1,8 +1,5 @@
 local plugins = {
     {
-        "prettier/vim-prettier",
-    },
-    {
         "christoomey/vim-tmux-navigator",
         lazy = false,
     },
@@ -66,9 +63,9 @@ local plugins = {
     -- },
     {
         "saecki/crates.nvim",
-        ft = {"rust", "toml"},
+        ft = { "rust", "toml" },
         dependencies = "hrsg7th/nvim-cmp",
-        config = function (_, opts)
+        config = function(_, opts)
             local crates = require("crates")
             crates.setup(opts)
             crates.show()
@@ -76,9 +73,9 @@ local plugins = {
     },
     {
         "hrsh7th/nvim-cmp",
-        opts = function ()
+        opts = function()
             local M = require("plugins.configs.cmp")
-            table.insert(M.sources, {name = "crates"})
+            table.insert(M.sources, { name = "crates" })
             return M
         end
     }
