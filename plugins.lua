@@ -20,6 +20,10 @@ local plugins = {
         lazy = false,
     },
     {
+        'nvim-pack/nvim-spectre',
+        lazy = false,
+    },
+    {
         "neovim/nvim-lspconfig",
         config = function()
             require "plugins.configs.lspconfig"

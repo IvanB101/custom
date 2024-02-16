@@ -24,13 +24,13 @@ M.general = {
         ["<leader>d"] = { "\"_d", "delete" },
     },
     x = {
-        ["rp"] = { "\"_dP", "replace highlighted with clipboard" },
-        ["<leader>rp"] = { "\"_dP", "replace highlighted with register" },
+        ["R"] = { "\"_dP", "replace with clipboard" },
+        ["<leader>R"] = { "\"_d\"+P", "replace with register" },
     },
 }
-M.touble = {
+M.trouble = {
     n = {
-        ["xx"] = { "<cmd> TroubleToggle<CR>", "toggle trouble" },
+        ["q"] = { "<cmd> TroubleToggle<CR>", "toggle trouble" },
     },
 }
 M.undoTree = {
@@ -52,7 +52,7 @@ M.tmuxNavigation = {
         ["<C-k>"] = { "<cmd> TmuxNavigateUp<CR>", "window up" },
     },
 }
-M.touble = {
+M.debugging = {
     n = {
         ["<leader>db"] = { "<cmd> DapToggleBreakpoint<CR>", "toggle break point" },
         ["<leader>dg"] = {
@@ -64,6 +64,28 @@ M.touble = {
             "open debugging sidebar"
         }
     },
+}
+M.spectre = {
+    n = {
+        ['<leader>S'] = {
+            '<cmd>lua require("spectre").toggle()<CR>',
+            'Toggle Spectre',
+        },
+        ['<leader>sw'] = {
+            '<cmd>lua require("spectre").open_visual({select_word=true})<CR>',
+            'Search current word'
+        },
+        ['<leader>sp'] = {
+            '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>',
+            'Search on current file'
+        },
+    },
+    v = {
+        ['<leader>sw'] = {
+            '<esc><cmd>lua require("spectre").open_visual()<CR>',
+            'Search current word'
+        }
+    }
 }
 
 return M
