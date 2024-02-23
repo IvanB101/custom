@@ -6,16 +6,15 @@ local util = require "lspconfig/util"
 
 local servers = {
     "clangd",
-    "jdtls",
     "html",
-    -- npm install -g typescript-language-server typescript
-    "sqlls",
+    "jdtls",
+    "kotlin_language_server",
     "lemminx",
     -- run nvim command `LspInstall slint`
     -- run nvim command `TSInstall slint` for syntax highligh
     "slint_lsp",
+    "sqlls",
     "texlab",
-    "kotlin_language_server",
     "zls",
 }
 
@@ -26,6 +25,7 @@ for _, lsp in ipairs(servers) do
     }
 end
 
+-- npm install -g typescript-language-server typescript
 lspconfig.tsserver.setup({
     capabilities = capabilities,
     on_attach = function(client, bufnr)

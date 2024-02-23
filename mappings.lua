@@ -13,19 +13,30 @@ M.general = {
         ["<leader>y"] = { "\"+y", "yank to clipboard" },
         ["<leader>p"] = { "\"+p", "paste from clipboard" },
         -- Delete to void
-        ["<leader>d"] = { "\"_d", "delete" },
+        ["D"] = { "\"_d", "delete" },
         -- Evading muscle memory problems
         ["Q"] = { "<nop>", "" },
         ["<C-z>"] = { "<nop>", "" },
+        -- Replacing lines
+        ["cc"] = { "\"_ddP", "replace with register" },
+        ["CC"] = { "\"_dd\"+P", "replace with clipboard" },
+        -- Replacing words 
+        ["cw"] = { "\"_dwP", "replace word with register" },
+        ["Cw"] = { "\"_dw\"+P", "replace word with clipboard" },
+        -- Redo
+        ["U"] = { "<C-r>", "redo" },
     },
     v = {
+        -- Yanking and pasting from a to clipboard
         ["<leader>p"] = { "\"+p", "paste from clipboard" },
         ["<leader>y"] = { "\"+y", "yank to clipboard" },
-        ["<leader>d"] = { "\"_d", "delete" },
+        -- Delete to void
+        ["D"] = { "\"_d", "delete" },
     },
     x = {
-        ["R"] = { "\"_dP", "replace with clipboard" },
-        ["<leader>R"] = { "\"_d\"+P", "replace with register" },
+        -- Replacing lines
+        ["c"] = { "\"_dP", "replace with register" },
+        ["C"] = { "\"_d\"+P", "replace with clipboard" },
     },
 }
 M.trouble = {
@@ -38,12 +49,6 @@ M.undoTree = {
         ["<leader>u"] = { "<cmd> UndotreeToggle<CR>", "toggle undo tree" },
     },
 }
-M.gitTelescope = {
-    n = {
-        ["<leader>gb"] = { "<cmd> Telescope git_branches <CR>", "Git branches" },
-        ["<leader>gc"] = { "<cmd> Telescope git_commits <CR>", "Git commits" },
-    },
-}
 M.tmuxNavigation = {
     n = {
         ["<C-h>"] = { "<cmd> TmuxNavigateLeft<CR>", "window left" },
@@ -54,8 +59,8 @@ M.tmuxNavigation = {
 }
 M.debugging = {
     n = {
-        ["<leader>db"] = { "<cmd> DapToggleBreakpoint<CR>", "toggle break point" },
-        ["<leader>dg"] = {
+        ["<leader>b"] = { "<cmd> DapToggleBreakpoint<CR>", "toggle break point" },
+        ["<leader>db"] = {
             function()
                 local widgets = require("dap.ui.widgets")
                 local sidebar = widgets.sidebar(widgets.scopes)
