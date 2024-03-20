@@ -24,6 +24,9 @@ local plugins = {
         lazy = false,
     },
     {
+        'mfussenegger/nvim-jdtls',
+    },
+    {
         "neovim/nvim-lspconfig",
         config = function()
             require "plugins.configs.lspconfig"
@@ -35,11 +38,6 @@ local plugins = {
                 require "custom.configs.null-ls"
             end,
         },
-    },
-    {
-        "williamboman/nvim-lsp-installer",
-        lazy = false,
-        opts = require("custom.configs.lsp_installer")
     },
     {
         "williamboman/mason.nvim",

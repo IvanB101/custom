@@ -7,12 +7,10 @@ local util = require "lspconfig/util"
 local servers = {
     "clangd",
     "html",
-    "jdtls",
+    -- "jdtls",
     "kotlin_language_server",
     "lemminx",
-    -- run nvim command `LspInstall slint`
-    -- run nvim command `TSInstall slint` for syntax highligh
-    "slint_lsp",
+    "intelephense",
     "sqlls",
     "texlab",
     "zls",
@@ -20,6 +18,12 @@ local servers = {
 
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {
+        -- on_init = function(client)
+        --     if client.server_capabilities then
+        --         client.server_capabilities.documentFormattingProvider = false
+        --         client.server_capabilities.semanticTokensProvider = false -- turn off semantic tokens
+        --     end
+        -- end,
         on_attach = on_attach,
         capabilities = capabilities,
     }

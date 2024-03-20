@@ -11,6 +11,7 @@ local opts = {
         "tectonic",
         "texlab",
         "kotlin-language-server",
+        "intelephense",
         "zls",
     }
 }
