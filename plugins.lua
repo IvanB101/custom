@@ -27,6 +27,25 @@ local plugins = {
         'mfussenegger/nvim-jdtls',
     },
     {
+        'lervag/vimtex',
+        lazy = false,
+        -- init = function ()
+        --     require("custom.config.vimtex")
+        -- end,
+    },
+    {
+        "L3MON4D3/LuaSnip",
+        opts = {
+            history = true,
+            updateevents = "TextChanged,TextChangedI",
+            enable_autosnippets = true,
+        },
+        config = function(_, opts)
+            require("plugins.configs.others").luasnip(opts)
+            require("custom.configs.luasnip")
+        end,
+    },
+    {
         "neovim/nvim-lspconfig",
         config = function()
             require "plugins.configs.lspconfig"

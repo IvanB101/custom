@@ -17,12 +17,6 @@ M.general = {
         -- Evading muscle memory problems
         ["Q"] = { "<nop>", "" },
         ["<C-z>"] = { "<nop>", "" },
-        -- Replacing lines
-        ["cc"] = { "\"_ddP", "replace with register" },
-        ["CC"] = { "\"_dd\"+P", "replace with clipboard" },
-        -- Replacing words 
-        ["cw"] = { "\"_dwP", "replace word with register" },
-        ["Cw"] = { "\"_dw\"+P", "replace word with clipboard" },
         -- Redo
         ["U"] = { "<C-r>", "redo" },
     },
@@ -38,6 +32,17 @@ M.general = {
         ["c"] = { "\"_dP", "replace with register" },
         ["C"] = { "\"_d\"+P", "replace with clipboard" },
     },
+}
+M.luasnip = {
+    n = {
+        ['<Leader>L'] = {
+            function()
+                require("luasnip.loaders.from_lua")
+                    .load({ paths = "~/.config/nvim/lua/custom/snippets/" })
+            end,
+            "reload snippets"
+        }
+    }
 }
 M.trouble = {
     n = {

@@ -6,9 +6,10 @@ local util = require "lspconfig/util"
 
 local servers = {
     "clangd",
+    "cssls",
     "html",
-    -- "jdtls",
     "kotlin_language_server",
+    "lua_ls",
     "lemminx",
     "intelephense",
     "sqlls",
@@ -28,6 +29,12 @@ for _, lsp in ipairs(servers) do
         capabilities = capabilities,
     }
 end
+
+lspconfig.bashls.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    filetypes = { "bash", "zsh" },
+})
 
 -- npm install -g typescript-language-server typescript
 lspconfig.tsserver.setup({
