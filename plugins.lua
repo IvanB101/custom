@@ -20,6 +20,32 @@ local plugins = {
         lazy = false,
     },
     {
+        'nvim-pack/nvim-spectre',
+        lazy = false,
+    },
+    {
+        'mfussenegger/nvim-jdtls',
+    },
+    {
+        'lervag/vimtex',
+        lazy = false,
+        -- init = function ()
+        --     require("custom.config.vimtex")
+        -- end,
+    },
+    {
+        "L3MON4D3/LuaSnip",
+        opts = {
+            history = true,
+            updateevents = "TextChanged,TextChangedI",
+            enable_autosnippets = true,
+        },
+        config = function(_, opts)
+            require("plugins.configs.others").luasnip(opts)
+            require("custom.configs.luasnip")
+        end,
+    },
+    {
         "neovim/nvim-lspconfig",
         config = function()
             require "plugins.configs.lspconfig"
@@ -31,11 +57,6 @@ local plugins = {
                 require "custom.configs.null-ls"
             end,
         },
-    },
-    {
-        "williamboman/nvim-lsp-installer",
-        lazy = false,
-        opts = require("custom.configs.lsp_installer")
     },
     {
         "williamboman/mason.nvim",

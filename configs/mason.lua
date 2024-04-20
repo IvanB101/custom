@@ -8,9 +8,11 @@ local opts = {
         "lemminx",
         "gopls",
         "clang-format",
+        "lua_ls",
         "tectonic",
         "texlab",
         "kotlin-language-server",
+        "intelephense",
         "zls",
     }
 }

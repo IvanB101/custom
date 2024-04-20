@@ -17,3 +17,5 @@ opt.isfname:append("@-@")
 opt.updatetime = 50
 
 opt.clipboard = ""
+
+vim.g.lua_snippets_path = "~/.config/nvim/lua/custom/snippets/"

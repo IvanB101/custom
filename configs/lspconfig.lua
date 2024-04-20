@@ -6,26 +6,37 @@ local util = require "lspconfig/util"
 
 local servers = {
     "clangd",
-    "jdtls",
+    "cssls",
     "html",
-    -- npm install -g typescript-language-server typescript
-    "sqlls",
-    "lemminx",
-    -- run nvim command `LspInstall slint`
-    -- run nvim command `TSInstall slint` for syntax highligh
-    "slint_lsp",
-    "texlab",
     "kotlin_language_server",
+    "lua_ls",
+    "lemminx",
+    "intelephense",
+    "sqlls",
+    "texlab",
     "zls",
 }
 
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {
+        -- on_init = function(client)
+        --     if client.server_capabilities then
+        --         client.server_capabilities.documentFormattingProvider = false
+        --         client.server_capabilities.semanticTokensProvider = false -- turn off semantic tokens
+        --     end
+        -- end,
         on_attach = on_attach,
         capabilities = capabilities,
     }
 end
 
+lspconfig.bashls.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    filetypes = { "bash", "zsh" },
+})
+
+-- npm install -g typescript-language-server typescript
 lspconfig.tsserver.setup({
     capabilities = capabilities,
     on_attach = function(client, bufnr)

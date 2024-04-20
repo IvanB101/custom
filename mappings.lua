@@ -13,35 +13,45 @@ M.general = {
         ["<leader>y"] = { "\"+y", "yank to clipboard" },
         ["<leader>p"] = { "\"+p", "paste from clipboard" },
         -- Delete to void
-        ["<leader>d"] = { "\"_d", "delete" },
+        ["D"] = { "\"_d", "delete" },
         -- Evading muscle memory problems
         ["Q"] = { "<nop>", "" },
         ["<C-z>"] = { "<nop>", "" },
+        -- Redo
+        ["U"] = { "<C-r>", "redo" },
     },
     v = {
+        -- Yanking and pasting from a to clipboard
         ["<leader>p"] = { "\"+p", "paste from clipboard" },
         ["<leader>y"] = { "\"+y", "yank to clipboard" },
-        ["<leader>d"] = { "\"_d", "delete" },
+        -- Delete to void
+        ["D"] = { "\"_d", "delete" },
     },
     x = {
-        ["rp"] = { "\"_dP", "replace highlighted with clipboard" },
-        ["<leader>rp"] = { "\"_dP", "replace highlighted with register" },
+        -- Replacing lines
+        ["c"] = { "\"_dP", "replace with register" },
+        ["C"] = { "\"_d\"+P", "replace with clipboard" },
     },
 }
-M.touble = {
+M.luasnip = {
     n = {
-        ["xx"] = { "<cmd> TroubleToggle<CR>", "toggle trouble" },
+        ['<Leader>L'] = {
+            function()
+                require("luasnip.loaders.from_lua")
+                    .load({ paths = "~/.config/nvim/lua/custom/snippets/" })
+            end,
+            "reload snippets"
+        }
+    }
+}
+M.trouble = {
+    n = {
+        ["q"] = { "<cmd> TroubleToggle<CR>", "toggle trouble" },
     },
 }
 M.undoTree = {
     n = {
         ["<leader>u"] = { "<cmd> UndotreeToggle<CR>", "toggle undo tree" },
-    },
-}
-M.gitTelescope = {
-    n = {
-        ["<leader>gb"] = { "<cmd> Telescope git_branches <CR>", "Git branches" },
-        ["<leader>gc"] = { "<cmd> Telescope git_commits <CR>", "Git commits" },
     },
 }
 M.tmuxNavigation = {
@@ -52,10 +62,10 @@ M.tmuxNavigation = {
         ["<C-k>"] = { "<cmd> TmuxNavigateUp<CR>", "window up" },
     },
 }
-M.touble = {
+M.debugging = {
     n = {
-        ["<leader>db"] = { "<cmd> DapToggleBreakpoint<CR>", "toggle break point" },
-        ["<leader>dg"] = {
+        ["<leader>b"] = { "<cmd> DapToggleBreakpoint<CR>", "toggle break point" },
+        ["<leader>db"] = {
             function()
                 local widgets = require("dap.ui.widgets")
                 local sidebar = widgets.sidebar(widgets.scopes)
@@ -64,6 +74,28 @@ M.touble = {
             "open debugging sidebar"
         }
     },
+}
+M.spectre = {
+    n = {
+        ['<leader>S'] = {
+            '<cmd>lua require("spectre").toggle()<CR>',
+            'Toggle Spectre',
+        },
+        ['<leader>sw'] = {
+            '<cmd>lua require("spectre").open_visual({select_word=true})<CR>',
+            'Search current word'
+        },
+        ['<leader>sp'] = {
+            '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>',
+            'Search on current file'
+        },
+    },
+    v = {
+        ['<leader>sw'] = {
+            '<esc><cmd>lua require("spectre").open_visual()<CR>',
+            'Search current word'
+        }
+    }
 }
 
 return M

@@ -15,7 +15,7 @@ null_ls.setup({
         formatting.goimports_reviser,
         -- go install github.com/segmentio/golines v0.11.0
         -- formatting.golines,
-        formatting.clang_format,
+        -- formatting.clang_format,
         formatting.prettier
     },
     on_attach = function(client, bufnr)
