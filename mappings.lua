@@ -65,11 +65,13 @@ M.tmuxNavigation = {
 M.debugging = {
     n = {
         ["<leader>b"] = { "<cmd> DapToggleBreakpoint<CR>", "toggle break point" },
-        ["<leader>dp"] = {
+        ["<leader>db"] = {
             function()
-                require("dap-python").test_method()
+                local widgets = require("dap.ui.widgets")
+                local sidebar = widgets.sidebar(widgets.scopes)
+                sidebar.open()
             end,
-            "start debugging python"
+            "open debugging sidebar"
         }
     },
 }

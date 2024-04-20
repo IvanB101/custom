@@ -3,6 +3,7 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
 local util = require "lspconfig/util"
+
 local servers = {
     "clangd",
     "cssls",
@@ -11,11 +12,10 @@ local servers = {
     "lua_ls",
     "lemminx",
     "intelephense",
-    "sqls",
+    "sqlls",
     "texlab",
     "zls",
 }
-
 
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {
@@ -85,19 +85,3 @@ lspconfig.gopls.setup {
         }
     }
 }
-
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-lspconfig.marksman.setup {
-    capabilities = capabilities,
-    filetypes = { 'markdown', 'quarto' },
-    root_dir = util.root_pattern('.git', '.marksman.toml', '_quarto.yml'),
-}
-
-lspconfig.pyright.setup({
-    on_attach = on_attach,
-    capabilities = capabilities,
-    filetypes = { "python" },
-})
