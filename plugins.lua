@@ -16,10 +16,6 @@ local plugins = {
         lazy = false,
     },
     {
-        "folke/trouble.nvim",
-        lazy = false,
-    },
-    {
         'nvim-pack/nvim-spectre',
         lazy = false,
     },
@@ -28,7 +24,7 @@ local plugins = {
     },
     {
         'lervag/vimtex',
-        lazy = false,
+        -- lazy = false,
         -- init = function ()
         --     require("custom.config.vimtex")
         -- end,
@@ -58,6 +54,17 @@ local plugins = {
             end,
         },
     },
+    -- {
+    --     "nvim-treesitter/nvim-treesitter",
+    --     config = function()
+    --         require("nvim-treesitter.configs").setup({
+    --             highlight = {
+    --                 enable = true,
+    --                 disable = { "tex" },
+    --             }
+    --         })
+    --     end,
+    -- },
     {
         "williamboman/mason.nvim",
         opts = require("custom.opts.mason"),
@@ -81,39 +88,28 @@ local plugins = {
     {
         "mfussenegger/nvim-dap"
     },
-    {
-        "mfussenegger/nvim-dap-python",
-        ft = "python",
-        dependencies = {
-            "mfussenegger/nvim-dap",
-            "rcarriga/nvim-dap-ui",
-        },
-        config = function(_, opts)
-            local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
-            require("dap-python").setup(path)
-        end
-    },
-    {
-        "rcarriga/nvim-dap-ui",
-        dependencies = {
-            "mfussenegger/nvim-dap",
-            "nvim-neotest/nvim-nio",
-        },
-        config = function()
-            local dap = require("dap")
-            local dapui = require("dapui")
-            dapui.setup()
-            dap.listeners.after.event_initialized["dapui_config"] = function()
-                dapui.open()
-            end
-            dap.listeners.after.event_terminated["dapui_config"] = function()
-                dapui.close()
-            end
-            dap.listeners.after.event_exited["dapui_config"] = function()
-                dapui.close()
-            end
-        end
-    },
+    -- {
+    --     "mfussenegger/nvim-dap-python",
+    --     ft = "python",
+    --     dependencies = {
+    --         "mfussenegger/nvim-dap",
+    --         "rcarriga/nvim-dap-ui",
+    --     },
+    --     config = function()
+    --         local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
+    --         require("dap-python").setup(path)
+    --     end
+    -- },
+    -- {
+    --     "rcarriga/nvim-dap-ui",
+    --     dependencies = {
+    --         "mfussenegger/nvim-dap",
+    --         "nvim-neotest/nvim-nio",
+    --     },
+    --     config = function()
+    --         require("custom.configs.dapui")
+    --     end
+    -- },
     {
         "saecki/crates.nvim",
         ft = { "rust", "toml" },

@@ -15,10 +15,17 @@ M.general = {
         -- Delete to void
         ["D"] = { "\"_d", "delete" },
         -- Evading muscle memory problems
-        ["Q"] = { "<nop>", "" },
         ["<C-z>"] = { "<nop>", "" },
         -- Redo
         ["U"] = { "<C-r>", "redo" },
+
+        ["<leader>n"] = { function()
+            vim.diagnostic.goto_next()
+        end, "next diagnostic" },
+
+        ["<leader>N"] = { function()
+            vim.diagnostic.goto_prev()
+        end, "prev diagnostic" },
     },
     v = {
         -- Yanking and pasting from a to clipboard
@@ -43,11 +50,6 @@ M.luasnip = {
             "reload snippets"
         }
     }
-}
-M.trouble = {
-    n = {
-        ["q"] = { "<cmd> TroubleToggle<CR>", "toggle trouble" },
-    },
 }
 M.undoTree = {
     n = {

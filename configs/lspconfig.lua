@@ -14,6 +14,7 @@ local servers = {
     "intelephense",
     "sqlls",
     "texlab",
+    "wgsl_analyzer",
     "zls",
 }
 
@@ -30,6 +31,12 @@ for _, lsp in ipairs(servers) do
     }
 end
 
+lspconfig.glsl_analyzer.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    filetypes = { "glsl" }
+})
+
 lspconfig.pyright.setup({
     on_attach = on_attach,
     capabilities = capabilities,
@@ -39,11 +46,11 @@ lspconfig.pyright.setup({
 lspconfig.bashls.setup({
     on_attach = on_attach,
     capabilities = capabilities,
-    filetypes = { "bash", "zsh" },
+    filetypes = { "bash", "zsh", "sh" },
 })
 
 -- npm install -g typescript-language-server typescript
-lspconfig.tsserver.setup({
+lspconfig.ts_ls.setup({
     capabilities = capabilities,
     on_attach = function(client, bufnr)
         local utils = require "core.utils"
@@ -91,4 +98,3 @@ lspconfig.gopls.setup {
         }
     }
 }
-

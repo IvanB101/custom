@@ -19,3 +19,14 @@ opt.updatetime = 50
 opt.clipboard = ""
 
 vim.g.lua_snippets_path = "~/.config/nvim/lua/custom/snippets/"
+
+opt.backup = false
+opt.writebackup = false
+
+vim.filetype.add({
+    pattern = {
+        ["*.vert"] = "glsl",
+        ["*.frag"] = "glsl",
+        ["*.glsl"] = "glsl",
+    },
+})

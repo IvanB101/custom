@@ -10,7 +10,7 @@ null_ls.setup({
     sources = {
         formatting.prettier,
         diagnostics.ruff,
-        diagnostics.mypy,
+        -- diagnostics.mypy,
         formatting.black,
     },
     on_attach = function(client, bufnr)
