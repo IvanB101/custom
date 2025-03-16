@@ -19,6 +19,7 @@ opt.updatetime = 50
 opt.clipboard = ""
 
 vim.g.lua_snippets_path = "~/.config/nvim/lua/custom/snippets/"
+vim.g.markdown_fenced_languages = { 'cpp' }
 
 opt.backup = false
 opt.writebackup = false

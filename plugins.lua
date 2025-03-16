@@ -24,10 +24,10 @@ local plugins = {
     },
     {
         'lervag/vimtex',
-        -- lazy = false,
-        -- init = function ()
-        --     require("custom.config.vimtex")
-        -- end,
+        lazy = false,
+        init = function()
+            require("custom.configs.vimtex")
+        end,
     },
     {
         "L3MON4D3/LuaSnip",
@@ -54,17 +54,6 @@ local plugins = {
             end,
         },
     },
-    -- {
-    --     "nvim-treesitter/nvim-treesitter",
-    --     config = function()
-    --         require("nvim-treesitter.configs").setup({
-    --             highlight = {
-    --                 enable = true,
-    --                 disable = { "tex" },
-    --             }
-    --         })
-    --     end,
-    -- },
     {
         "williamboman/mason.nvim",
         opts = require("custom.opts.mason"),

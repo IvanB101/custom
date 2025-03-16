@@ -11,7 +11,7 @@ local servers = {
     "kotlin_language_server",
     "lua_ls",
     "lemminx",
-    "intelephense",
+    "neocmake",
     "sqlls",
     "texlab",
     "wgsl_analyzer",

@@ -3,29 +3,37 @@ local M = {}
 M.general = {
     n = {
         ["<leader>s"] = { ":%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>", "replace ocurrencies" },
-        -- Center cursor with some commands
+
         ["J"] = { "mzJ`z", "J maintains cursor position" },
         ["<C-d>"] = { "<C-d>zz", "centeres <C-d>" },
         ["<C-u>"] = { "<C-u>zz", "centeres <C-u>" },
         ["n"] = { "nzzzv", "Centered cursor n" },
         ["N"] = { "Nzzzv", "Centered cursor N" },
-        -- Yanking and pasting from a to clipboard
         ["<leader>y"] = { "\"+y", "yank to clipboard" },
         ["<leader>p"] = { "\"+p", "paste from clipboard" },
-        -- Delete to void
         ["D"] = { "\"_d", "delete" },
-        -- Evading muscle memory problems
-        ["<C-z>"] = { "<nop>", "" },
-        -- Redo
+        ["<C-z>"] = { "<nop>", "avoiding problems" },
         ["U"] = { "<C-r>", "redo" },
 
-        ["<leader>n"] = { function()
-            vim.diagnostic.goto_next()
-        end, "next diagnostic" },
+        ["m"] = { function() vim.diagnostic.goto_next() end, "next diagnostic" },
+        ["M"] = { function() vim.diagnostic.goto_prev() end, "prev diagnostic" },
 
-        ["<leader>N"] = { function()
-            vim.diagnostic.goto_prev()
-        end, "prev diagnostic" },
+        ["<leader>tf"] = { function()
+            local qf_exists = false
+            for _, win in pairs(vim.fn.getwininfo()) do
+                if win["quickfix"] == 1 then
+                    qf_exists = true
+                end
+            end
+            if qf_exists == true then
+                vim.cmd "cclose"
+                return
+            end
+            if not vim.tbl_isempty(vim.fn.getqflist()) then
+                vim.cmd "copen"
+            end
+        end
+        , "toggle quickfix list" },
     },
     v = {
         -- Yanking and pasting from a to clipboard
@@ -79,24 +87,17 @@ M.debugging = {
 }
 M.spectre = {
     n = {
-        ['<leader>S'] = {
-            '<cmd>lua require("spectre").toggle()<CR>',
-            'Toggle Spectre',
-        },
-        ['<leader>sw'] = {
-            '<cmd>lua require("spectre").open_visual({select_word=true})<CR>',
-            'Search current word'
-        },
-        ['<leader>sp'] = {
-            '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>',
-            'Search on current file'
-        },
+        ['<leader>s'] = { function() require("spectre").toggle() end, "toggle Spectre" },
+        ['<leader>sw'] = { function() require("spectre").open_visual({ select_word = true }) end, "toggle spectre" },
+        ['<leader>sp'] = { function() require("spectre").open_file_search({ select_word = true }) end, "toggle spectre" },
     },
     v = {
-        ['<leader>sw'] = {
-            '<esc><cmd>lua require("spectre").open_visual()<CR>',
-            'Search current word'
-        }
+        ['<leader>sw'] = { function() require("spectre").open_visual() end, "toggle Spectre" },
+    }
+}
+M.latex = {
+    n = {
+        ["<leader>v"] = { "<cmd> VimtexView<CR>", "vimtex view" },
     }
 }
 
