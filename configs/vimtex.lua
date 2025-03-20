@@ -13,5 +13,13 @@ vim.g.vimtex_view_general_viewer = 'okular'
 vim.maplocalleader = ","
 
 vim.g.vimtex_compiler_latexmk = {
-    out_dir = 'build'
+    out_dir = 'build',
+    options = {
+        '-pdf',
+        '-shell-escape',
+        '-verbose',
+        '-file-line-error',
+        '-synctex=1',
+        '-interaction=nonstopmode',
+    },
 }

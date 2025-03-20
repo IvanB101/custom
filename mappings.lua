@@ -18,7 +18,7 @@ M.general = {
         ["m"] = { function() vim.diagnostic.goto_next() end, "next diagnostic" },
         ["M"] = { function() vim.diagnostic.goto_prev() end, "prev diagnostic" },
 
-        ["<leader>tf"] = { function()
+        ["<leader>q"] = { function()
             local qf_exists = false
             for _, win in pairs(vim.fn.getwininfo()) do
                 if win["quickfix"] == 1 then
@@ -97,7 +97,8 @@ M.spectre = {
 }
 M.latex = {
     n = {
-        ["<leader>v"] = { "<cmd> VimtexView<CR>", "vimtex view" },
+        ["<leader>lv"] = { "<cmd> VimtexView<CR>", "vimtex view" },
+        ["<leader>lc"] = { "<cmd> VimtexCompile<CR>", "vimtex compile" },
     }
 }
 
